@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>23</maven.compiler.release>
+        <maven.compiler.release>18</maven.compiler.release>
         <exec.mainClass>mx.itson.estructura_de_datos_2025.ESTRUCTURA_DE_DATOS_2025</exec.mainClass>
     </properties>
 </project>
