@@ -6,7 +6,7 @@ package mx.itson.estructura_de_datos_2025;
 
 /**
  *
- * @author ABCDE-SONY
+ * @author vanny
  */
 public class MiPrimerArreglo {
     public static void main(String[]args){

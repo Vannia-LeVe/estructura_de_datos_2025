@@ -6,7 +6,7 @@ package mx.itson.estructura_de_datos_2025;
 
 /**
  *
- * @author ABCDE-SONY
+ * @author vanny
  */
 public class Validador extends javax.swing.JFrame {
 
@@ -39,10 +39,11 @@ public class Validador extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Correo");
 
-        btnValidad.setBackground(new java.awt.Color(153, 0, 0));
+        btnValidad.setBackground(new java.awt.Color(102, 102, 255));
         btnValidad.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnValidad.setForeground(new java.awt.Color(0, 0, 0));
+        btnValidad.setForeground(new java.awt.Color(204, 204, 255));
         btnValidad.setText("Validar");
+        btnValidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnValidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValidadActionPerformed(evt);
@@ -57,7 +58,7 @@ public class Validador extends javax.swing.JFrame {
         });
 
         lbltitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lbltitulo.setForeground(new java.awt.Color(153, 0, 0));
+        lbltitulo.setForeground(new java.awt.Color(102, 51, 255));
         lbltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbltitulo.setText("Bienvenido");
 
