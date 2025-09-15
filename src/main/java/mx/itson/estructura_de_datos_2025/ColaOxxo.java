@@ -4,12 +4,16 @@
  */
 package mx.itson.estructura_de_datos_2025;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  *
  * @author alumnog
  */
 public class ColaOxxo extends javax.swing.JFrame {
 
+    Queue<String> colaaOxxo = new LinkedList<> ();
     /**
      * Creates new form ColaOxxo
      */
@@ -29,10 +33,12 @@ public class ColaOxxo extends javax.swing.JFrame {
         jprojo = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jtAgregadoFila = new javax.swing.JTextField();
-        jlelsub = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        txtLista = new javax.swing.JTextArea();
+        tfnombre = new javax.swing.JTextField();
+        lblsub = new javax.swing.JLabel();
+        btnagregarLista = new javax.swing.JButton();
+        btnAtender = new javax.swing.JButton();
+        lblAtendiendo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,27 +52,42 @@ public class ColaOxxo extends javax.swing.JFrame {
         );
         jprojoLayout.setVerticalGroup(
             jprojoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 65, Short.MAX_VALUE)
+            .addGap(0, 104, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(217, 54, 36));
 
-        jTextArea1.setBackground(new java.awt.Color(197, 66, 51));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtLista.setBackground(new java.awt.Color(197, 66, 51));
+        txtLista.setColumns(20);
+        txtLista.setRows(5);
+        jScrollPane1.setViewportView(txtLista);
 
-        jtAgregadoFila.setBackground(new java.awt.Color(255, 255, 255));
-        jtAgregadoFila.setText("jTextField1");
-        jtAgregadoFila.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tfnombre.setBackground(new java.awt.Color(255, 255, 255));
+        tfnombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jlelsub.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jlelsub.setForeground(new java.awt.Color(0, 0, 0));
-        jlelsub.setText("Se formó en la fila: ");
+        lblsub.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblsub.setForeground(new java.awt.Color(0, 0, 0));
+        lblsub.setText("Se formó en la fila: ");
 
-        jButton1.setBackground(new java.awt.Color(225, 158, 48));
-        jButton1.setText("Agregar en la lista");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnagregarLista.setBackground(new java.awt.Color(225, 158, 48));
+        btnagregarLista.setText("Agregar en la lista");
+        btnagregarLista.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnagregarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarListaActionPerformed(evt);
+            }
+        });
+
+        btnAtender.setBackground(new java.awt.Color(210, 156, 36));
+        btnAtender.setText("Atender");
+        btnAtender.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAtender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderActionPerformed(evt);
+            }
+        });
+
+        lblAtendiendo.setText("Se esta atendiendo a ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -74,29 +95,36 @@ public class ColaOxxo extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtAgregadoFila)
-                    .addComponent(jlelsub)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tfnombre)
+                        .addComponent(lblsub)
+                        .addComponent(btnagregarLista, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                        .addComponent(btnAtender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblAtendiendo, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(30, 30, 30))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(14, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jlelsub)
+                        .addComponent(lblsub)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtAgregadoFila, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                        .addComponent(btnagregarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAtender, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblAtendiendo)
+                        .addGap(24, 24, 24))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,14 +137,32 @@ public class ColaOxxo extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jprojo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jprojo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnagregarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarListaActionPerformed
+      colaaOxxo.add(tfnombre.getText());
+      String fila= "";
+      for (String cliente: colaaOxxo){
+      fila+= cliente+ "\n";
+      
+      } txtLista.setText(fila);
+     
+    }//GEN-LAST:event_btnagregarListaActionPerformed
+
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
+          String fila= "";
+          
+          for (String cliente:colaaOxxo){
+          fila+= cliente+ "\n";
+          }
+    }//GEN-LAST:event_btnAtenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,13 +199,17 @@ public class ColaOxxo extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAtender;
+    private javax.swing.JButton btnagregarLista;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel jlelsub;
     private javax.swing.JPanel jprojo;
-    private javax.swing.JTextField jtAgregadoFila;
+    private javax.swing.JLabel lblAtendiendo;
+    private javax.swing.JLabel lblsub;
+    private javax.swing.JTextField tfnombre;
+    private javax.swing.JTextArea txtLista;
     // End of variables declaration//GEN-END:variables
+    
 }
