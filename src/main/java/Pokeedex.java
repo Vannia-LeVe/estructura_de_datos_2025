@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -23,10 +24,27 @@ public class Pokeedex extends javax.swing.JFrame {
         initComponents();
     }
     public void eliminar(){}
-    
+     
     public void editar(){}
     
-    public void llenarTabla(){}
+    public void llenarTabla(){
+    DefaultTableModel datos = new DefaultTableModel();
+    datos.addColumn("   NOMBRE");
+    datos.addColumn(" TIPO ");
+    datos.addColumn("   DAÑO");
+    datos.addColumn("VIDA");
+    datos.addColumn("EVOLUCION");
+    datos.addColumn("GENERO");    
+    
+    // 
+    for (Pokemon p : lista){
+        datos.addRow(new Object[]{
+        p.getNombre(),p.getTipo(),p.getDano(),p.getVida(),p.getEvolucion(),p.getGenero()
+        });
+    }
+    tblPokemon.setModel(datos);
+    }
+    
     public void formularioReiniciado(){
          tfNombre.setText("");
          tfTipo.setText("");
@@ -39,8 +57,6 @@ public class Pokeedex extends javax.swing.JFrame {
     }
     
     public void agregarLista(){
-        System.out.println("Se agrega el codigo");
-        
         Pokemon pokemon= new Pokemon(
                 tfNombre.getText(),
                 tfTipo.getText(),
@@ -50,8 +66,9 @@ public class Pokeedex extends javax.swing.JFrame {
                 tfGenero.getText()
         );
         lista.add(pokemon);
-        System.out.println(lista);
-        formularioReiniciado();
+        
+        this.llenarTabla();
+        this.formularioReiniciado();
     }
     
     /**
@@ -79,7 +96,7 @@ public class Pokeedex extends javax.swing.JFrame {
         lblGenero = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblTabla = new javax.swing.JTable();
+        tblPokemon = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
 
@@ -88,49 +105,42 @@ public class Pokeedex extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblNombre.setForeground(null);
         lblNombre.setText("NOMBRE");
 
         tfNombre.setBackground(new java.awt.Color(255, 255, 255));
-        tfNombre.setForeground(null);
 
         btnAgregar.setBackground(new java.awt.Color(153, 153, 153));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnAgregar.setText("AGREGAR");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         tfTipo.setBackground(new java.awt.Color(255, 255, 255));
-        tfTipo.setForeground(null);
 
         tfDano.setBackground(new java.awt.Color(255, 255, 255));
-        tfDano.setForeground(null);
 
         tfVida.setBackground(new java.awt.Color(255, 255, 255));
-        tfVida.setForeground(null);
 
         tfEvolucion.setBackground(new java.awt.Color(255, 255, 255));
-        tfEvolucion.setForeground(null);
 
         tfGenero.setBackground(new java.awt.Color(255, 255, 255));
-        tfGenero.setForeground(null);
 
         lblTipo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblTipo.setForeground(null);
         lblTipo.setText("TIPO");
 
         lblDaño.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblDaño.setForeground(null);
         lblDaño.setText("DAÑO");
 
         lblVida.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblVida.setForeground(null);
         lblVida.setText("VIDA");
 
         lblEvolucion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblEvolucion.setForeground(null);
         lblEvolucion.setText("EVOLUCIÓN");
 
         lblGenero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblGenero.setForeground(null);
         lblGenero.setText("Genero");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -205,10 +215,9 @@ public class Pokeedex extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setForeground(null);
 
-        tblTabla.setBackground(new java.awt.Color(105, 105, 106));
-        tblTabla.setModel(new javax.swing.table.DefaultTableModel(
+        tblPokemon.setBackground(new java.awt.Color(105, 105, 106));
+        tblPokemon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -219,7 +228,7 @@ public class Pokeedex extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblTabla);
+        jScrollPane1.setViewportView(tblPokemon);
 
         btnEliminar.setBackground(new java.awt.Color(204, 0, 0));
         btnEliminar.setText("X");
@@ -283,6 +292,10 @@ public class Pokeedex extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+       this.agregarLista();
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -321,7 +334,7 @@ public class Pokeedex extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblVida;
-    private javax.swing.JTable tblTabla;
+    private javax.swing.JTable tblPokemon;
     private javax.swing.JTextField tfDano;
     private javax.swing.JTextField tfEvolucion;
     private javax.swing.JTextField tfGenero;
