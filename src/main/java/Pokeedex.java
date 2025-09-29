@@ -282,8 +282,8 @@ public class Pokeedex extends javax.swing.JFrame {
         });
 
         lblPokemonSeleccionado.setBackground(new java.awt.Color(0, 0, 0));
-        lblPokemonSeleccionado.setForeground(new java.awt.Color(204, 51, 255));
-        lblPokemonSeleccionado.setText("jLabel1");
+        lblPokemonSeleccionado.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPokemonSeleccionado.setForeground(new java.awt.Color(0, 51, 51));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -373,7 +373,10 @@ public class Pokeedex extends javax.swing.JFrame {
        Pokemon pokemonTemp= new Pokemon(
        tfNombre.getText(),
        tfTipo.getText(),
-       Double.parseDouble(tfDano.getText()),
+       Double.parseDouble(tfDano.getText() ),
+       Double.parseDouble(tfVida.getText() ),      
+       tfEvolucion.getText(),
+               tfGenero.getText()
                
        );
     lista.set(pokemonSeleccionado, pokemonTemp);
